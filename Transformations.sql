@@ -11,7 +11,7 @@ FROM
     
     
 SELECT 
-    unit_price * 0.90 AS discounted_price,
+    unit_price * 0.90 AS discounted_prices,
     unit_price + 10 AS taxed_price,
     unit_price / 10 AS fractioned_price,
     ROUND(unit_price,1) AS rounded_price, -- used to round numeric values to a specified number of decimal places.
