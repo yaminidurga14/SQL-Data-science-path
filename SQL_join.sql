@@ -1,0 +1,155 @@
+-- Insertion Script
+
+CREATE TABLE customers (
+    customer_id INT PRIMARY KEY,
+    name VARCHAR(50),
+    city VARCHAR(50)
+);
+
+INSERT INTO customers VALUES
+(1, 'Anirudh', 'Chittoor'),
+(2, 'Rahul', 'Bangalore'),
+(3, 'Sneha', 'Hyderabad'),
+(4, 'Kiran', 'Chennai'),
+(5, 'Pooja', 'Mumbai');
+
+
+
+CREATE TABLE orders (
+    order_id INT PRIMARY KEY,
+    customer_id INT,
+    order_date DATE
+);
+
+
+INSERT INTO orders VALUES
+(101, 1, '2024-01-10'),
+(102, 2, '2024-01-11'),
+(103, 1, '2024-01-12'),
+(104, 3, '2024-01-13'),
+(105, 6, '2024-01-14'); -- invalid customer (for edge case)
+
+
+
+CREATE TABLE products (
+    product_id INT PRIMARY KEY,
+    product_name VARCHAR(50),
+    price INT
+);
+
+
+
+INSERT INTO products VALUES
+(201, 'Laptop', 60000),
+(202, 'Phone', 30000),
+(203, 'Tablet', 20000),
+(204, 'Headphones', 2000);
+
+
+
+CREATE TABLE order_items (
+    order_id INT,
+    product_id INT,
+    quantity INT
+);
+
+INSERT INTO order_items VALUES
+(101, 201, 1),
+(101, 204, 2),
+(102, 202, 1),
+(103, 203, 3),
+(104, 201, 1),
+(106, 202, 1); -- invalid order
+
+SELECT * FROM orders; 
+SELECT * FROM customers; 
+SELECT * FROM order_items; 
+SELECT * FROM products;
+
+
+
+-- Joins
+
+-- 1.inner join
+
+SELECT 
+    *
+FROM
+    orders o                                        
+INNER JOIN
+    customers c ON o.customer_id = c.customer_id;   
+    
+    
+-- visualize selected columns    
+SELECT 
+    o.*
+FROM
+    orders o -- LEFT TABLE
+INNER JOIN
+    customers c ON o.customer_id = c.customer_id; -- RIGHT TABLE    
+    
+    
+-- 2. Left Join
+
+SELECT 
+    *
+FROM
+    orders o
+        LEFT JOIN
+    customers c ON o.customer_id = c.customer_id;
+    
+    
+    
+-- 3. Right Join
+
+SELECT 
+    *
+FROM
+    orders o
+RIGHT JOIN
+    customers c ON o.customer_id = c.customer_id;   
+    
+    
+    
+ -- FULL JOIN (NOT supported in MySQL)
+ 
+ SELECT 
+    *
+FROM
+    orders o
+FULL JOIN
+    customers c ON o.customer_id = c.customer_id; 
+ 
+ 
+ 
+    
+-- UNION (Replacement for full join)
+
+-- Left Join
+
+SELECT 
+    *
+FROM
+    orders o
+        LEFT JOIN
+    customers c ON o.customer_id = c.customer_id
+    
+UNION    
+    
+-- Right Join
+
+SELECT 
+    *
+FROM
+    orders o
+RIGHT JOIN
+    customers c ON o.customer_id = c.customer_id;    
+ 
+ 
+    
+
+
+
+
+
+

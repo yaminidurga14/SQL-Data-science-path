@@ -1,0 +1,65 @@
+Basic Queries
+
+Write a query to find the total sales amount from fact_sales.
+Retrieve all sales records for a given date_key.
+Find the total quantity sold for each product_key.
+List all distinct customers who made purchases.
+Get all sales records where quantity is greater than 5.
+
+Joins
+6. Write a query to get sales along with customer names using dim_customer.
+7. Retrieve product names and total sales amount for each product.
+8. Join fact_sales with dim_store to show store location and sales.
+9. Write a query to fetch sales data with full date details from dim_date.
+10. Get customer city and total sales grouped by city.
+
+Aggregations
+11. Find total revenue per product category.
+12. Calculate total sales per store.
+13. Get average sales amount per customer.
+14. Find total sales for each month using dim_date.
+15. Count number of transactions per day.
+
+Filtering & Conditions
+16. Find sales that happened on weekends using dim_date.
+17. Retrieve sales where total_amount is greater than a threshold.
+18. Get sales for a specific product category.
+19. Find customers who purchased a specific product.
+20. Retrieve records for a specific year and month combination.
+
+Group By & Having
+21. Find products with total sales greater than 10000.
+22. Get customers with more than 3 transactions.
+23. Find stores with average sales greater than a threshold.
+24. List categories with total quantity sold greater than a given value.
+
+Window Functions
+25. Rank products based on total sales amount.
+26. Calculate running total of sales by date.
+27. Find top 3 customers by total spending.
+28. Compute sales difference between consecutive days.
+29. Assign row numbers to sales per customer.
+
+Advanced Queries
+30. Write a query to calculate year-over-year sales growth.
+31. Find the most sold product in each category.
+32. Identify customers who never made a purchase.
+33. Find the day with highest sales.
+34. Get top-performing store for each month.
+
+Subqueries
+35. Find products whose sales are above average.
+36. Get customers whose total spending is greater than overall average.
+37. Retrieve stores with sales equal to the maximum sales.
+
+Data Engineering Scenarios (SQL-centric)
+38. Write a query to detect duplicate records in fact_sales.
+39. Find missing foreign key references in fact_sales.
+40. Write a query to validate referential integrity between fact and dimension tables.
+41. Identify null or invalid values in key columns.
+42. Create a query to backfill missing date records.
+
+Performance-Oriented
+43. Write a query that avoids full table scan using proper filtering.
+44. Optimize a query that joins all dimension tables with fact_sales.
+45. Rewrite a query using CTE instead of subquery for better readability
