@@ -209,6 +209,9 @@ first_name LIKE 'A%';
 
 -- % anything  after
 
+-- SELECT * FROM dim_customer
+-- WHERE 
+-- join_date BETWEEN '2021-09-08' AND '2023-06-08';
 
 
 -- 2.Choose a particular data starting with a particular starting letter, and ending with particular letter data
@@ -242,7 +245,7 @@ ORDER BY unit_price DESC;
 -- 1.
 SELECT * FROM dim_product
 ORDER BY unit_price DESC
-LIMIT 3;   
+LIMIT 10;   
 
 
 
@@ -289,6 +292,8 @@ FROM
     dim_product
 GROUP BY category;
 
+SELECT * FROM real_sales.dim_product;
+
 
 
 -- Aggregate - Sum
@@ -299,6 +304,7 @@ FROM
     dim_product
 GROUP BY category;
 
+SELECT * FROM real_sales.dim_product;
 
 -- Aggregate - Count 
 
@@ -309,6 +315,14 @@ SELECT
     AVG(unit_price) AS avg_price
 FROM dim_product
 GROUP BY category;
+
+SELECT * FROM real_sales.dim_product;
+
+SELECT COUNT(category) AS count_category FROM dim_product
+WHERE category='clothing';
+
+
+
 
 /*
 Electronics → 2 rows
@@ -354,6 +368,7 @@ SELECT
 FROM dim_product
 GROUP BY launch_year
 ORDER BY launch_year;
+
 
 
 
