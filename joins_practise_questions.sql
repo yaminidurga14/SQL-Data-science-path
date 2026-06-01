@@ -349,6 +349,24 @@ ON oi.product_id = p.product_id;
 
 -- 43. Find repeat customers
 
+SELECT c.customer_name,
+       COUNT(o.order_id) AS orders_count
+FROM customers c
+JOIN orders o
+ON c.customer_id = o.customer_id
+GROUP BY c.customer_name
+HAVING COUNT(o.order_id) > 1;
+
+SELECT  c.customer_name ,count(o.order_id) 
+from customers c
+join orders o
+on c.customer_id =o.customer_id
+group by c.customer_name
+HAVING COUNT(o.order_id) > 1;
+
+
+
+
 -- 44. Find customer retention by counting repeat purchases
 
 -- 45. Find percentage contribution of each category to total sales
