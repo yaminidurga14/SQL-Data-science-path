@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # SQL Data Science Practice Scripts
 
 > A curated collection of SQL practice files for learning and experimenting with SQL concepts, database design, joins, data manipulation, and transformations. This repository is designed for learners at all levels, from SQL beginners to advanced practitioners seeking to strengthen their query optimization and analytical skills.
@@ -409,3 +410,6 @@ After completing these practice files, consider:
 ---
 
 **Happy Learning and SQL Mastery!**
+=======
+# SQL-Data-science-path
+>>>>>>> e509bf6f1c5b3f6ae131cfca71d7b206e3e8b0b2
