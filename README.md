@@ -276,12 +276,6 @@ Provides additional join practice scenarios for comprehensive join practice and 
 
 **Skill Level**: Intermediate to Advanced | **Duration**: 120-180 minutes
 
-### ❓ `joins_practise_questions.sql`
-**Practice questions** focused on join operations with varying complexity levels.
-
-### ❓ `joins_practise_queestions.sql`
-**Additional join scenarios** for comprehensive join practice and mastery.
-
 ---
 
 ## Tips & Best Practices
