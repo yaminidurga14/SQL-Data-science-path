@@ -244,7 +244,8 @@ LEFT JOIN
 
 -- 4. List all employees with their manager names
 
--- 5. Display all order IDs with shipment status
+-- 5. Display all order IDs with shipment 
+
 SELECT * FROM shipments;
 SELECT * FROM orders;
 
@@ -255,6 +256,12 @@ FROM
     orders o
        LEFT  JOIN
     shipments s ON o.order_id = s.order_id;
+    
+SELECT *
+FROM
+    orders o
+       LEFT  JOIN
+    shipments s ON o.order_id = s.order_id;    
 
 
 -- 6. Show payment mode used for each customer order
@@ -280,7 +287,6 @@ ON oi.product_id = p.product_id;
 -- 9. Show all customers who placed orders
 
 
-
 -- 10. Find all customers who never placed any order
 
 -- 11. Find orders that do not have payments
@@ -291,7 +297,17 @@ ON oi.product_id = p.product_id;
 
 -- 14. Find customers who never gave reviews
 
+SELECT * FROM customers;
+SELECT * FROM reviews;
+
+SELECT c.customer_name
+FROM customers c
+LEFT JOIN reviews r
+ON c.customer_id=r.customer_id
+WHERE r.review_id IS NULL; 
+
 -- 15. Find employees who never handled orders
+
 
 -- 16. Find categories with no products
 
@@ -348,6 +364,7 @@ ON oi.product_id = p.product_id;
 -- 42. Find daily order count trend
 
 -- 43. Find repeat customers
+
 
 -- 44. Find customer retention by counting repeat purchases
 
