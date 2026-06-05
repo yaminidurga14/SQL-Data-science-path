@@ -79,17 +79,23 @@ SELECT
     *
 FROM
     orders o                                        
-INNER JOIN
+INNER JOIN 
     customers c ON o.customer_id = c.customer_id;   
     
     
 -- visualize selected columns    
+
+
+SELECT * FROM orders; 
+SELECT * FROM customers;
+
 SELECT 
-    o.*
+    *
 FROM
     orders o -- LEFT TABLE
 INNER JOIN
     customers c ON o.customer_id = c.customer_id; -- RIGHT TABLE
+    
     
 /*
 Matching Process:
@@ -189,6 +195,9 @@ matching customers
     
 -- 3. Right Join/Right outer Join
 
+SELECT * FROM orders; 
+SELECT * FROM customers; 
+
 SELECT 
     *
 FROM
@@ -258,6 +267,9 @@ ON orders.customer_id = customers.customer_id;
  
     
 -- UNION (Replacement for full join)
+
+SELECT * FROM orders; 
+SELECT * FROM customers; 
 
 
 -- Left Join
@@ -361,8 +373,50 @@ FROM
 4. Return final result
 */    
 
+-- union
+SELECT 
+    *
+FROM
+    orders o
+        LEFT JOIN
+    customers c ON o.customer_id = c.customer_id
 
 
+ 
+ 
+UNION    
+
+
+-- Right Join
+SELECT 
+    *
+FROM
+    orders o
+        RIGHT JOIN
+    customers c ON o.customer_id = c.customer_id;
+    
+    
+-- union all
+SELECT 
+    *
+FROM
+    orders o
+        LEFT JOIN
+    customers c ON o.customer_id = c.customer_id
+
+
+ 
+ 
+UNION ALL   
+
+
+-- Right Join
+SELECT 
+    *
+FROM
+    orders o
+        RIGHT JOIN
+    customers c ON o.customer_id = c.customer_id;      
 
 
 

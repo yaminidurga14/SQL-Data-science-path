@@ -474,7 +474,75 @@ DENSE_RANK() OVER(PARTITION BY department ORDER BY salary DESC) AS 'Dense_Rank'
 FROM employees;
 
 
+-- REAL TIME scenarios
 
+-- SCENARIO 1. FIND Nth Value [Most afoordable/ most expensive from top to bottom]
+
+-- SUBQUERY
+SELECT 
+       *,
+       DENSE_RANK() OVER(ORDER BY unit_Price) AS ranking
+FROM 
+  dim_product;       
+
+
+SELECT subquery.*
+FROM
+(
+SELECT 
+       *,
+       DENSE_RANK() OVER(ORDER  BY unit_Price) AS ranking
+FROM 
+  dim_product
+) subquery
+WHERE 
+  ranking =5;
+  
+  
+SELECT subquery.*  -- subquery.* means: "Open the box labeled 'subquery' and give me every folder inside it."
+FROM
+(
+SELECT 
+       *,
+       DENSE_RANK() OVER(PARTITION BY category  ORDER BY unit_Price DESC) AS ranking
+FROM 
+  dim_product
+) subquery -- <-- This names the inner results "subquery"
+WHERE 
+  ranking =5;
+
+
+-- SCENARIO 2. [Removing duplicates]
+
+SELECT * FROM employees;
+
+INSERT INTO employees(emp_id,employee_name,department,salary)
+VALUES
+(10, "Asha","sales","50000");
+
+
+-- SUBQUERY
+SELECT *,
+      ROW_NUMBER() OVER(PARTITION BY emp_id ORDER BY emp_id) AS Ranking 
+FROM 
+   employees;   
+   
+   
+
+SELECT 
+    subquery.*  
+FROM    
+(
+SELECT *,
+      ROW_NUMBER() OVER(PARTITION BY emp_id ORDER BY emp_id) AS Deduplicate_Ranking 
+FROM 
+   employees
+) subquery 
+WHERE Deduplicate_Ranking=1;
+
+
+
+-- SCENARIO 3 [Lag and Lead]
 
 
 
