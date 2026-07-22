@@ -400,8 +400,6 @@ ON o.order_id = s.order_id;
 
 -- 32. Show customer name with payment mode and shipment status
 
-
-
 -- 33. Find all products purchased by customer 'Anil'
 
 SELECT p.product_id, p.product_name , c.customer_name
@@ -437,7 +435,6 @@ GROUP BY c.category_name;
 -- 36. Find city-wise total revenue
 
 
-
 -- 37. Find which manager supervises employees generating highest sales
 
 -- 38. Display customer reviews along with product category
@@ -446,20 +443,12 @@ GROUP BY c.category_name;
 
 -- 40. Find customers who purchased products from more than one category
 
-SELECT c.customer_name,
-       COUNT(DISTINCT p.category_id) AS categories_bought
-FROM customers c
-JOIN orders o
-ON c.customer_id = o.customer_id
-JOIN order_items oi
-ON o.order_id = oi.order_id
-JOIN products p
-ON oi.product_id = p.product_id
-GROUP BY c.customer_name
-HAVING COUNT(DISTINCT p.category_id) > 1;
-
-
 -- 41. Find monthly revenue trend
+select  monthname(o.order_date) as Month ,SUM(oi.quantity * oi.price_each) as Revenue_trend
+FROM orders o
+join order_items oi 
+on o.order_id=oi.order_id
+group by monthname(o.order_date);
 
 
 
@@ -467,7 +456,7 @@ HAVING COUNT(DISTINCT p.category_id) > 1;
 
 -- 43. Find repeat customers
 
-<<<<<<< HEAD
+
 SELECT c.customer_name,
        COUNT(o.order_id) AS orders_count
 FROM customers c
@@ -485,28 +474,9 @@ HAVING COUNT(o.order_id) > 1;
 
 
 
-=======
->>>>>>> 7813dd4022b8cb943940dc52f025662d19e2e3bf
-
 -- 44. Find customer retention by counting repeat purchases
 
 
-SELECT o.customer_id,count(oi.product_id) AS repeat_purchase
-FROM orders o
-JOIN  order_items oi
-ON o.order_id = oi.order_id
-GROUP BY o.customer_id
-ORDER BY repeat_purchase DESC;
-
-
-SELECT
-    c.customer_name,
-    COUNT(o.order_id) AS total_orders
-FROM customers c
-JOIN orders o
-ON c.customer_id = o.customer_id
-GROUP BY c.customer_id, c.customer_name
-HAVING COUNT(o.order_id) > 1;
 
 
 
