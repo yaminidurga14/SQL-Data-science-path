@@ -739,17 +739,17 @@ WHERE (customer_key, total_amount) NOT IN
 
 -- 8.Filter out NULLs in the subquery
 SELECT
-    sales_id,
+    product_name,
     product_key,
     unit_price
-FROM fact_sales
+FROM dim_product
 WHERE (product_key, unit_price) NOT IN
 (
     SELECT
         product_key,
         unit_price
     FROM dim_product
-    WHERE unit_price IS NOT NULL
+    WHERE unit_price IS not NULL
 );
 
 
